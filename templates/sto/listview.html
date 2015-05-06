@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+    
+{%block page_title %} {{page_title}}  {%endblock%}
+
+
+{%block  sidebar_block %} -EMPTY-{% endblock %}
+
+{% block body_block%}
+    
+  <div class="span8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>STID</th>
+          <th>Poject</th>
+          <th>Customer</th>
+          <th>Notes</th>
+          <th>Assigned</th>
+          <th>Date Opened</th>
+          <th>Status</th>
+          <th>Billing</th>
+        </tr>
+      </thead>
+  </div>
+      <tbody>
+        <tr>
+          
+        {% for item  in list %}
+            {% if item.stprojnum %}
+            <td><strong>{{item.stid}}</strong></td>
+            <td>{{item.stprojnum}}</td>
+            <td>{{item.stcustomer}}</td>
+            <td>{{item.stnotes}}</td>
+            <td>{{item.strespperson}}</td>
+            <td>{{item.stentrydate}}</td>
+          <td>{{item.ststatus}}</td>
+          <td>{{item.stbilling}}</td>  
+          </tr>
+       
+           {% endif %}
+         
+        {% endfor %}
+          
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+  
+ {%endblock%}
